@@ -24,7 +24,7 @@ body {
 }
 
 .header-logo, .header-img {
-  height: 120px; /* Bada kar diya */
+  height: 100px; /* Bada kar diya */
   width: auto;
   object-fit: contain;
 }
