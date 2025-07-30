@@ -37,14 +37,14 @@ body {
 .header-title h1 {
   font-size: 48px;
   margin: 0;
-  color: #fff;
+  color: #000080;
   line-height: 1.2;
 }
 
 .header-title p {
   margin: 0;
   font-size: 18px;
-  color: #eee;
+  color: #000080;
 }
 
 /* Main */
