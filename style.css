@@ -14,12 +14,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fff;
-  padding: 10px 5%;
+  position: relative;
+  padding: 20px 5%;
+  background-image: url('https://ik.imagekit.io/pinet/Header.jpg?updatedAt=1753854012766');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.header-container .overlay {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4); /* overlay for contrast */
+  z-index: 0;
+}
+
+.header-logo, .header-img, .header-title {
+  position: relative;
+  z-index: 1;
 }
 
 .header-logo, .header-img {
-  width: 120px;
+  width: 100px;
   height: auto;
 }
 
@@ -28,15 +47,15 @@ body {
 }
 
 .header-title h1 {
-  font-size: 36px;
+  font-size: 40px;
   margin: 0;
-  color: #ff5722;
+  color: #fff;
 }
 
 .header-title p {
   margin: 0;
   font-size: 16px;
-  color: #333;
+  color: #ddd;
 }
 
 /* Main */
