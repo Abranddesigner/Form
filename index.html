@@ -27,6 +27,14 @@
       display: block;
     }
 
+    .form-box, .form-section {
+      padding: 20px 5%;
+    }
+
+    .form-section.hidden {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .header-image {
         width: 100%;
@@ -43,12 +51,13 @@
   <div class="flag-strip"></div>
 </header>
 
-<!-- Main Form Section -->
 <main>
-  <div class="form-box">
+
+  <!-- Step 1 Form -->
+  <div class="form-box" id="form-step-1">
     <div class="form-left">
       <h2>Application Form</h2>
-      <form class="two-column-form">
+      <form class="two-column-form" onsubmit="event.preventDefault(); showStep2();">
         <div class="form-row">
           <div class="form-group">
             <label>Candidate First Name</label>
@@ -122,12 +131,115 @@
       <img src="https://ik.imagekit.io/pinet/ELI.jpeg?updatedAt=1753849157322" alt="ELI Side" class="side-image" />
     </div>
   </div>
+
+  <!-- Step 2 Form (Initially Hidden) -->
+  <div class="form-section hidden" id="form-step-2">
+    <h2>Application Form - Step 2</h2>
+    <form>
+      <label>Apply for the Post:</label><br/>
+      <select name="job_post">
+        <option>Data Entry Operator</option>
+        <option>Digital Marketing Executive</option>
+        <option>IT Support Specialist</option>
+        <option>Network Administrator</option>
+        <option>Software Developer</option>
+        <option>System Administrator</option>
+        <option>Database Administrator (DBA)</option>
+        <option>Cybersecurity Analyst</option>
+        <option>Web Developer / Frontend Developer</option>
+        <option>Technical Support / Helpdesk Executive</option>
+      </select><br/><br/>
+
+      <label>Do you belong to Scheduled area of Rajasthan?</label>
+      <select name="scheduled_area">
+        <option>Yes</option>
+        <option>No</option>
+      </select><br/><br/>
+
+      <label>Correspondence Address:</label><br/>
+      <input type="text" placeholder="Address Line 1" /><br/>
+      <input type="text" placeholder="Address Line 2" /><br/>
+      <input type="text" placeholder="City/Village" />
+      <input type="text" placeholder="District" />
+      <select name="state">
+        <option value="">Select State</option>
+        <option>Rajasthan</option>
+        <option>Delhi</option>
+        <option>Uttar Pradesh</option>
+        <option>Maharashtra</option>
+      </select>
+      <input type="text" placeholder="Nationality" /><br/>
+      <input type="text" placeholder="PinCode" />
+      <input type="text" placeholder="Mobile No." /><br/><br/>
+
+      <label>Aadhar Number (12 digits)</label>
+      <input type="text" maxlength="12" required /><br/><br/>
+
+      <label>Are you EX-SERVICEMAN?</label><select><option>Yes</option><option>No</option></select><br/>
+      <label>Are you OUTSTANDING SPORTS PERSON?</label><select><option>Yes</option><option>No</option></select><br/>
+      <label>Are you NCC CADET INSTRUCTOR?</label><select><option>Yes</option><option>No</option></select><br/>
+      <label>Are you EX-PRISONER?</label><select><option>Yes</option><option>No</option></select><br/>
+      <label>Are you EXISTING STATE GOVERNMENT EMPLOYEE?</label><select><option>Yes</option><option>No</option></select><br/><br/>
+
+      <h3>Education Qualification Details</h3>
+      <table border="1" id="edu-table">
+        <thead>
+          <tr>
+            <th>SNo</th><th>Name of Exam</th><th>Subject Group</th><th>Board/University</th><th>Roll No.</th><th>Result</th><th>Year</th><th>Percentage/Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" onclick="addEduRow()">+ Add Row</button><br/><br/>
+
+      <label>Upload Passport Size Photo:</label>
+      <input type="file" accept="image/*" /><br/><br/>
+
+      <label>Signature:</label>
+      <input type="file" accept="image/*" /><br/><br/>
+
+      <label>
+        <input type="checkbox" required />
+        I hereby declare that all info given is true and correct...
+      </label><br/><br/>
+
+      <button type="submit">Submit</button>
+      <button type="button" style="margin-top: 20px; background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">Pay Fee</button>
+    </form>
+  </div>
+
 </main>
 
-<!-- Footer -->
 <footer>
   <div class="flag-strip"></div>
 </footer>
+
+<script>
+  function showStep2() {
+    document.getElementById('form-step-1').classList.add('hidden');
+    document.getElementById('form-step-2').classList.remove('hidden');
+  }
+
+  function addEduRow() {
+    const table = document.getElementById('edu-table').getElementsByTagName('tbody')[0];
+    const rowCount = table.rows.length;
+    const newRow = table.insertRow();
+    newRow.innerHTML = `
+      <td>${rowCount + 1}</td>
+      <td><input type="text" /></td>
+      <td><input type="text" /></td>
+      <td><input type="text" /></td>
+      <td><input type="text" /></td>
+      <td><input type="text" /></td>
+      <td><input type="text" /></td>
+      <td><input type="text" /></td>
+    `;
+  }
+</script>
 
 </body>
 </html>
