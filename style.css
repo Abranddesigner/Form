@@ -23,7 +23,7 @@ body {
   align-items: flex-end;
   justify-content: space-between;
   padding: 20px 5%;
-  height: 230px;
+  height: 180px;
 }
 
 .header-logo, .header-img {
@@ -34,7 +34,7 @@ body {
 
 .header-title {
   text-align: center;
-  color: #fff;
+  color: #000080;
 }
 
 .header-title h1 {
