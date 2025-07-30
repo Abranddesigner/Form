@@ -2,50 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SSC Style Online Form</title>
+  <title>ELI Freshers Job Scheme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<h2>SSC Style Online Application Form</h2>
+<!-- Header with Indian Flag Cross -->
+<header>
+  <div class="flag-strip flag-top"></div>
+  <div class="header-container">
+    <img src="https://ik.imagekit.io/pinet/Eli%20lg.png?updatedAt=1753851145642" alt="Logo" class="header-logo">
+    
+    <div class="header-title">
+      <h1>ELI</h1>
+      <p>Freshers Job Scheme</p>
+    </div>
 
-<form>
-  <!-- Personal Details -->
-  <div class="form-section">
-    <h3>1. Personal Details</h3>
-    <label>Full Name</label>
-    <input type="text" name="full_name" required>
+    <img src="https://ik.imagekit.io/pinet/modiyogi.png?updatedAt=1753851043279" alt="ModiYogi" class="header-img">
+  </div>
+  <div class="flag-strip flag-bottom"></div>
+</header>
 
-    <div class="row">
-      <div>
+<!-- Main Form Section -->
+<main>
+  <div class="form-box">
+    <div class="form-left">
+      <h2>Application Form</h2>
+      <form>
+        <label>Candidate First Name</label>
+        <input type="text" name="first_name" required>
+
+        <label>Candidate Last Name</label>
+        <input type="text" name="last_name" required>
+
         <label>Father's Name</label>
         <input type="text" name="father_name">
-      </div>
-      <div>
+
         <label>Mother's Name</label>
         <input type="text" name="mother_name">
-      </div>
-    </div>
 
-    <div class="row">
-      <div>
         <label>Date of Birth</label>
-        <input type="date" name="dob" required>
-      </div>
-      <div>
-        <label>Gender</label>
-        <select name="gender" required>
-          <option value="">Select</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
-    </div>
+        <input type="date" name="dob">
 
-    <div class="row">
-      <div>
         <label>Category</label>
         <select name="category">
           <option value="">Select</option>
@@ -55,85 +54,28 @@
           <option>OBC</option>
           <option>EWS</option>
         </select>
-      </div>
-      <div>
+
         <label>Marital Status</label>
         <select name="marital_status">
           <option value="">Select</option>
           <option>Single</option>
           <option>Married</option>
         </select>
-      </div>
+
+        <button type="submit">Save and Next</button>
+      </form>
     </div>
 
-    <label>Aadhaar Number</label>
-    <input type="text" name="aadhaar" maxlength="12">
-
-    <label>Nationality</label>
-    <input type="text" name="nationality" value="Indian">
-  </div>
-
-  <!-- Contact & Address -->
-  <div class="form-section">
-    <h3>2. Contact & Address</h3>
-    <label>Permanent Address</label>
-    <textarea name="perm_address" rows="3"></textarea>
-
-    <label>Correspondence Address</label>
-    <textarea name="corr_address" rows="3"></textarea>
-
-    <div class="row">
-      <div>
-        <label>Mobile Number</label>
-        <input type="tel" name="mobile" maxlength="10">
-      </div>
-      <div>
-        <label>Email ID</label>
-        <input type="email" name="email">
-      </div>
+    <div class="form-right">
+      <img src="https://ik.imagekit.io/pinet/ELI.jpeg?updatedAt=1753849157322" alt="ELI" class="side-image">
     </div>
   </div>
+</main>
 
-  <!-- Education -->
-  <div class="form-section">
-    <h3>3. Educational Qualifications</h3>
-    <label>10th Details</label>
-    <input type="text" name="edu_10" placeholder="Board - Year - %">
-
-    <label>12th Details</label>
-    <input type="text" name="edu_12" placeholder="Board - Year - %">
-
-    <label>Graduation (if any)</label>
-    <input type="text" name="graduation" placeholder="University - Year - %">
-  </div>
-
-  <!-- Photo & Signature -->
-  <div class="form-section">
-    <h3>4. Upload Photo & Signature</h3>
-    <label>Passport Size Photo</label>
-    <input type="file" name="photo" accept="image/*" class="upload-box">
-
-    <label>Signature</label>
-    <input type="file" name="signature" accept="image/*" class="upload-box">
-  </div>
-
-  <!-- Declaration -->
-  <div class="form-section">
-    <h3>5. Declaration</h3>
-    <div class="declaration">
-      <p>
-        I hereby declare that all the information provided above is true and correct to the best of my knowledge and belief. I understand that any false information may lead to disqualification.
-      </p>
-      <label>Date</label>
-      <input type="date" name="decl_date">
-      
-      <label>Signature (Type Your Full Name)</label>
-      <input type="text" name="decl_sign">
-    </div>
-  </div>
-
-  <button type="submit">Submit Application</button>
-</form>
+<!-- Footer -->
+<footer>
+  <div class="flag-strip flag-top"></div>
+</footer>
 
 </body>
 </html>
