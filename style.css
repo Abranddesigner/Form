@@ -4,47 +4,50 @@ body {
   background: #f5f5f5;
 }
 
+/* Indian flag strip */
 .flag-strip {
   height: 8px;
   background: linear-gradient(to right, orange 33%, white 33% 66%, green 66%);
 }
 
-/* Header with Clear Background Image */
+/* Header with clear image and bottom aligned images */
 .header-container {
+  background-image: url('https://ik.imagekit.io/pinet/Header.jpg?updatedAt=1753854012766');
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+}
+
+.header-content {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   padding: 20px 5%;
-  background-image: url('https://ik.imagekit.io/pinet/Header.jpg?updatedAt=1753854012766');
-  background-size: cover;
-  background-position: center;
-  height: 220px;
-  color: white;
-  position: relative;
+  height: 230px;
 }
 
 .header-logo, .header-img {
-  height: 100px; /* Bada kar diya */
+  height: 170px;
   width: auto;
   object-fit: contain;
 }
 
 .header-title {
   text-align: center;
-  z-index: 1;
+  color: #fff;
 }
 
 .header-title h1 {
-  font-size: 48px;
+  font-size: 52px;
   margin: 0;
-  color: #000080;
-  line-height: 1.2;
+  font-weight: bold;
+  line-height: 1.1;
 }
 
 .header-title p {
-  margin: 0;
+  margin: 4px 0 0;
   font-size: 18px;
-  color: #000080;
+  font-weight: 500;
 }
 
 /* Main */
