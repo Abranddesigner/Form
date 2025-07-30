@@ -8,20 +8,22 @@
 </head>
 <body>
 
-<!-- Header with Indian Flag Cross -->
+<!-- Header -->
 <header>
-  <div class="flag-strip flag-top"></div>
+  <div class="flag-strip"></div>
+
   <div class="header-container">
-    <img src="https://ik.imagekit.io/pinet/Eli%20lg.png?updatedAt=1753851145642" alt="Logo" class="header-logo">
-    
+    <img src="https://ik.imagekit.io/pinet/Eli%20lg.png?updatedAt=1753851145642" class="header-logo" alt="Logo">
+
     <div class="header-title">
       <h1>ELI</h1>
       <p>Freshers Job Scheme</p>
     </div>
 
-    <img src="https://ik.imagekit.io/pinet/modiyogi.png?updatedAt=1753851043279" alt="ModiYogi" class="header-img">
+    <img src="https://ik.imagekit.io/pinet/modiyogi.png?updatedAt=1753851043279" class="header-img" alt="Modi Yogi">
   </div>
-  <div class="flag-strip flag-bottom"></div>
+
+  <div class="flag-strip"></div>
 </header>
 
 <!-- Main Form Section -->
@@ -29,52 +31,73 @@
   <div class="form-box">
     <div class="form-left">
       <h2>Application Form</h2>
-      <form>
-        <label>Candidate First Name</label>
-        <input type="text" name="first_name" required>
+      <form class="two-column-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Candidate First Name</label>
+            <input type="text" name="first_name" required />
+          </div>
+          <div class="form-group">
+            <label>Candidate Last Name</label>
+            <input type="text" name="last_name" required />
+          </div>
+        </div>
 
-        <label>Candidate Last Name</label>
-        <input type="text" name="last_name" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Father's Name</label>
+            <input type="text" name="father_name" />
+          </div>
+          <div class="form-group">
+            <label>Mother's Name</label>
+            <input type="text" name="mother_name" />
+          </div>
+        </div>
 
-        <label>Father's Name</label>
-        <input type="text" name="father_name">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" name="dob" />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select name="category">
+              <option value="">Select</option>
+              <option>General</option>
+              <option>OBC</option>
+              <option>SC</option>
+              <option>ST</option>
+              <option>EWS</option>
+            </select>
+          </div>
+        </div>
 
-        <label>Mother's Name</label>
-        <input type="text" name="mother_name">
-
-        <label>Date of Birth</label>
-        <input type="date" name="dob">
-
-        <label>Category</label>
-        <select name="category">
-          <option value="">Select</option>
-          <option>General</option>
-          <option>SC</option>
-          <option>ST</option>
-          <option>OBC</option>
-          <option>EWS</option>
-        </select>
-
-        <label>Marital Status</label>
-        <select name="marital_status">
-          <option value="">Select</option>
-          <option>Single</option>
-          <option>Married</option>
-        </select>
-
-        <button type="submit">Save and Next</button>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Marital Status</label>
+            <select name="marital_status">
+              <option value="">Select</option>
+              <option>Single</option>
+              <option>Married</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>&nbsp;</label>
+            <button type="submit">Save and Next</button>
+          </div>
+        </div>
       </form>
     </div>
 
     <div class="form-right">
-      <img src="https://ik.imagekit.io/pinet/ELI.jpeg?updatedAt=1753849157322" alt="ELI" class="side-image">
+      <img src="https://ik.imagekit.io/pinet/ELI.jpeg?updatedAt=1753849157322" alt="ELI" class="side-image" />
     </div>
   </div>
 </main>
 
 <!-- Footer -->
 <footer>
-  <div class="flag-strip flag-top"></div>
+  <div class="flag-strip"></div>
 </footer>
 
 </body>
