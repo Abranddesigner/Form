@@ -9,53 +9,42 @@ body {
   background: linear-gradient(to right, orange 33%, white 33% 66%, green 66%);
 }
 
-/* Header */
+/* Header with Clear Background Image */
 .header-container {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  position: relative;
   padding: 20px 5%;
   background-image: url('https://ik.imagekit.io/pinet/Header.jpg?updatedAt=1753854012766');
   background-size: cover;
   background-position: center;
+  height: 220px;
   color: white;
-}
-
-.header-container .overlay {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0,0,0,0.4); /* overlay for contrast */
-  z-index: 0;
-}
-
-.header-logo, .header-img, .header-title {
   position: relative;
-  z-index: 1;
 }
 
 .header-logo, .header-img {
-  width: 100px;
-  height: auto;
+  height: 160px; /* Bada kar diya */
+  width: auto;
+  object-fit: contain;
 }
 
 .header-title {
   text-align: center;
+  z-index: 1;
 }
 
 .header-title h1 {
-  font-size: 40px;
+  font-size: 48px;
   margin: 0;
   color: #fff;
+  line-height: 1.2;
 }
 
 .header-title p {
   margin: 0;
-  font-size: 16px;
-  color: #ddd;
+  font-size: 18px;
+  color: #eee;
 }
 
 /* Main */
