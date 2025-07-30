@@ -30,6 +30,7 @@
     .form-box {
       padding: 20px 5%;
       display: flex;
+      flex-direction: row-reverse;
       justify-content: space-between;
       flex-wrap: wrap;
     }
@@ -74,6 +75,9 @@
 
     @media (max-width: 768px) {
       .form-row {
+        flex-direction: column;
+      }
+      .form-box {
         flex-direction: column;
       }
     }
@@ -152,11 +156,14 @@
             </select>
           </div>
         </div>
-         <div class="form-row">
+
+        <div class="form-row">
           <div class="form-group">
-            <label>E-mail Id</label>
-            <input type="text" name="E-mail_Id" />
+            <label>Email ID</label>
+            <input type="email" name="email" required />
           </div>
+        </div>
+
         <div class="form-row">
           <div class="form-group">
             <label>&nbsp;</label>
