@@ -1,69 +1,105 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #f8f8f8;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
 }
 
-h2 {
+header {
+  background: #fff;
   text-align: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+}
+
+.header-logo, .header-img {
+  width: 80px;
+  height: auto;
+}
+
+.header-title h1 {
+  font-size: 36px;
+  margin: 0;
+  color: #ff5722;
+}
+
+.header-title p {
+  margin: 0;
+  font-size: 16px;
   color: #333;
 }
 
-form {
-  background: #fff;
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-  border-radius: 5px;
+.flag-strip {
+  height: 8px;
+  background: linear-gradient(to right, orange 33%, white 33% 66%, green 66%);
+}
+
+main {
+  padding: 20px 5%;
+}
+
+.form-box {
+  background: white;
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 20px;
 }
 
-.form-section {
-  margin-bottom: 20px;
+.form-left {
+  flex: 1;
+  padding: 20px;
 }
 
-label {
+.form-left h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+form label {
   display: block;
   margin-top: 10px;
   font-weight: bold;
 }
 
-input, select, textarea {
+form input, form select {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
-  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.row {
-  display: flex;
-  gap: 20px;
-}
-
-.row > div {
-  flex: 1;
-}
-
-.upload-box {
-  border: 1px dashed #aaa;
-  padding: 10px;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.declaration {
-  background: #f0f0f0;
-  padding: 10px;
-  border-left: 4px solid #333;
-}
-
-button {
+form button {
+  margin-top: 20px;
+  padding: 10px 20px;
   background: #007bff;
   color: white;
-  padding: 10px 20px;
-  border: none;
   font-size: 16px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
+}
+
+.form-right {
+  flex: 1;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-image {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px;
+}
+
+footer {
+  margin-top: 30px;
 }
