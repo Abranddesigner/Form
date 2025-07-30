@@ -1,113 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>ELI Freshers Job Scheme</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-    }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f5f5;
+}
 
-    .flag-strip {
-      height: 8px;
-      background: linear-gradient(to right, orange 33%, white 33% 66%, green 66%);
-    }
+/* Indian Flag Strip */
+.flag-strip {
+  height: 8px;
+  background: linear-gradient(to right, orange 33%, white 33% 66%, green 66%);
+}
 
-    .header-container {
-      background-image: url('https://ik.imagekit.io/pinet/Header.jpg?updatedAt=1753854012766');
-      background-size: cover;
-      background-position: center;
-      padding: 0;
-    }
+/* Header Styles */
+.header-container {
+  background-image: url('https://ik.imagekit.io/pinet/Header.jpg?updatedAt=1753854012766');
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+}
 
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 5%;
-      height: 120px;
-      flex-wrap: nowrap;
-    }
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5%;
+  height: 120px;
+  flex-wrap: nowrap;
+}
 
-    .header-logo, .header-img {
-      height: 90px;
-      width: auto;
-      object-fit: contain;
-    }
+.header-logo,
+.header-img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+}
 
-    .header-title {
-      text-align: center;
-      color: navy;
-      flex-grow: 1;
-    }
+.header-title {
+  text-align: center;
+  color: navy;
+  flex-grow: 1;
+}
 
-    .header-title h1 {
-      font-size: 32px;
-      margin: 0;
-      font-weight: bold;
-      line-height: 1.1;
-    }
+.header-title h1 {
+  font-size: 32px;
+  margin: 0;
+  font-weight: bold;
+  line-height: 1.1;
+}
 
-    .header-title p {
-      margin: 4px 0 0;
-      font-size: 14px;
-      font-weight: 500;
-    }
+.header-title p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+}
 
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        height: auto;
-        padding: 10px;
-      }
+/* Main Form */
+main {
+  padding: 20px 5%;
+}
 
-      .header-title {
-        text-align: center;
-        margin: 0 10px;
-      }
+.form-box {
+  display: flex;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
 
-      .header-title h1 {
-        font-size: 24px;
-      }
+.form-left {
+  flex: 1;
+  padding: 20px;
+  min-width: 300px;
+}
 
-      .header-title p {
-        font-size: 12px;
-      }
+.form-left h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
 
-      .header-logo, .header-img {
-        height: 60px;
-      }
-    }
-  </style>
-</head>
-<body>
+.form-right {
+  flex: 1;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 250px;
+}
 
-<header>
-  <div class="flag-strip"></div>
+.side-image {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px;
+}
 
-  <div class="header-container">
-    <div class="header-content">
-      <img src="https://ik.imagekit.io/pinet/Eli%20lg.png?updatedAt=1753851145642" class="header-logo" alt="ELI Logo" />
+/* Form Layout */
+.two-column-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-      <div class="header-title">
-        <h1>ELI</h1>
-        <p>Freshers Job Scheme</p>
-      </div>
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-      <img src="https://ik.imagekit.io/pinet/modiyogi.png?updatedAt=1753851043279" class="header-img" alt="Modi Yogi" />
-    </div>
-  </div>
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
-  <div class="flag-strip"></div>
-</header>
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-<!-- You can continue the form and footer section here -->
+input,
+select {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
 
-</body>
-</html>
+button {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    padding: 10px;
+  }
+
+  .header-title {
+    text-align: center;
+    margin: 0 10px;
+  }
+
+  .header-title h1 {
+    font-size: 24px;
+  }
+
+  .header-title p {
+    font-size: 12px;
+  }
+
+  .header-logo,
+  .header-img {
+    height: 60px;
+  }
+}
