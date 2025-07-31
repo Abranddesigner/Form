@@ -76,6 +76,9 @@
     footer {
       margin-top: 30px;
     }
+    .declaration {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -88,7 +91,7 @@
 
 <div class="container">
   <h2>Step 2 - Additional Information</h2>
-  <form>
+  <form id="step2form" onsubmit="return handleSubmit(event)">
     <label>Apply for the Post</label>
     <select name="post" required>
       <option value="">Select</option>
@@ -104,9 +107,8 @@
       <option>Technical Support / Helpdesk Executive</option>
     </select>
 
-    <!-- ✅ Added Category field -->
     <label>Category</label>
-    <select name="category" required>
+    <select name="category" id="category" required>
       <option value="">Select</option>
       <option>General</option>
       <option>OBC</option>
@@ -114,8 +116,6 @@
       <option>ST</option>
       <option>EWS</option>
     </select>
-
-    <!-- ❌ Removed "Do you belong to Scheduled area of Rajasthan?" -->
 
     <label>Correspondence Address</label>
     <div class="row">
@@ -220,7 +220,12 @@
     <label>Upload Signature</label>
     <input type="file" accept="image/*" />
 
-    <label><input type="checkbox" required /> I hereby declare that the information given is true...</label>
+    <div class="declaration">
+      <label>
+        <input type="checkbox" id="declaration" required />
+        I hereby declare that I fulfill the eligibility criteria as per the advertisement, and all the statements made in this application are complete and true to the best of my belief and knowledge. I also acknowledge my full consent to apply for the recruitment through the E-Mitra holder, and if any error or discrepancy is found in the application filled by me through EMitra, it will be considered as my own mistake. I understand that if any information provided by me is found to be incorrect or false at any stage, or if I do not meet the eligibility conditions specified in the guidelines, my application/ Candidature will be cancelled/terminated at my own responsibility. And the action can be taken against me under Section 182 of the I.P.C.
+      </label>
+    </div>
 
     <button type="submit" class="btn">Submit and Pay Fee</button>
   </form>
@@ -245,6 +250,34 @@ function addRow() {
     <td><input type="text"></td>
     <td><input type="text"></td>
   `;
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const category = document.getElementById("category").value.toUpperCase();
+  const declarationChecked = document.getElementById("declaration").checked;
+
+  if (!declarationChecked) {
+    alert("Please accept the declaration before submitting.");
+    return false;
+  }
+
+  let paymentLink = "";
+
+  if (category === "SC" || category === "ST") {
+    paymentLink = "https://razorpay.me/@EMPLOYMENTLINKEDINCENTIVE?amount=B3GVR7kTFeLelIPkLbK6rA%3D%3D";
+  } else {
+    paymentLink = "https://razorpay.me/@EMPLOYMENTLINKEDINCENTIVE?amount=17MUsM73VMmtFDDi%2F74gkA%3D%3D";
+  }
+
+  window.open(paymentLink, "_blank");
+
+  setTimeout(() => {
+    alert("Thanks for Apply");
+  }, 3000);
+
+  return false;
 }
 </script>
 
