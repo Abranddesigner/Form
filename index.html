@@ -310,11 +310,11 @@
     const age = calculateAge(new Date(dob));
 
     if (age < 17) {
-      alert("उम्र कम से कम 17 वर्ष होनी चाहिए।");
+      alert("Age must be at least 17 years.");
       return false;
     }
     if (!email.endsWith('@gmail.com')) {
-      alert("ईमेल आईडी '@gmail.com' पर समाप्त होनी चाहिए।");
+      alert("Email ID should end with '@gmail.com'.");
       return false;
     }
     return true;
