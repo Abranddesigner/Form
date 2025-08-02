@@ -175,7 +175,7 @@
 <div class="form-box">
   <div class="form-center">
     <h2>Application Form</h2>
-    <form action="step2.html" method="get" onsubmit="return validateForm()">
+     <form id="step1-form" action="step2.html" method="get">
       <div class="form-row">
         <div class="form-group">
           <label>Candidate First Name</label>
@@ -236,14 +236,10 @@
         </div>
       </div>
 
- <form id="step1-form" action="step2.html" method="get">
-    <!-- Aapke baaki input fields yahan honge -->
-    <!-- ... -->
-
-    <div class="form-row">
+       <div class="form-row">
       <div class="form-group">
         <label>&nbsp;</label>
-        <button type="submit" form="step1-form">Save and Next</button>
+        <button type="submit">Save and Next</button>
       </div>
     </div>
   </form>
@@ -284,6 +280,7 @@
 
 </body>
 </html>
+
 
 
 
