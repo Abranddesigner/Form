@@ -1,48 +1,4 @@
 /* ----------------------------------------- */
-/*  POPUP overlay + blur until closed       */
-/* ----------------------------------------- */
-.popup-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.popup-content {
-  position: relative;
-  width: 90%;
-  max-width: 400px;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-.popup-content img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  background: #fff;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 2px 6px;
-  cursor: pointer;
-  border-radius: 4px;
-  z-index: 1;
-}
-body:not(.active) {
-  filter: blur(5px);
-  transition: filter 0.3s ease;
-}
-
-/* ----------------------------------------- */
 /*  MAIN HEADER (blue title bar with date)   */
 /* ----------------------------------------- */
 .main-header {
@@ -191,3 +147,4 @@ th {
     align-items: stretch;
   }
 }
+
