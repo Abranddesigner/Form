@@ -54,10 +54,12 @@
       height: auto;
       flex-shrink: 0;
     }
-     @media(max-width:768px) {
+    @media(max-width:768px) {
       .top-slider { height: 50px; }
       .top-slider .slide { font-size:14px; line-height:50px; }
       header img { height: 80px; margin: 10px; }
+      .form-box { flex-direction: column; }
+      .form-right { align-items: stretch; }
       }
     }
 
@@ -120,12 +122,6 @@
       text-align: center;
       margin-top: 20px;
     }
-
-    @media (max-width: 768px) {
-      .slides img {
-        width: 100%;
-        height: auto;
-      }
     }
   </style>
 </head>
@@ -276,6 +272,7 @@
 
 </body>
 </html>
+
 
 
 
