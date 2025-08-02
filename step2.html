@@ -8,13 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      margin: 0;
+     margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #f5f5f5;
-    }
-    .flag-strip {
-      height: 8px;
-      background: linear-gradient(to right, orange 33%, white 33% 66%, green 66%);
     }
     header {
       background: #fff;
@@ -38,31 +34,26 @@
     }
     .header-left .text strong {
       font-size: 16px;
-    }
-    .header-left .text b {
       font-weight: bold;
+      display: block;
     }
     .header-right img {
       height: 60px;
       margin: 5px;
     }
+
     .slider {
-      width: 966px;
-      height: 328.78px;
+      width: 100%;
       overflow: hidden;
-      position: relative;
-      margin: 20px auto;
     }
     .slides {
       display: flex;
       transition: transform 1s ease;
       width: 300%;
-      height: 100%;
     }
     .slides img {
-      width: 966px;
-      height: 328.78px;
-      object-fit: cover;
+      width: 100vw;
+      height: auto;
       flex-shrink: 0;
     }
     @media (max-width: 768px) {
@@ -143,14 +134,11 @@
 </head>
 <body>
 
-<!-- Flag Strip -->
-<div class="flag-strip"></div>
-
 <!-- Header -->
 <header>
   <div class="header-left">
-    <a href="index.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
-      <img src="https://ik.imagekit.io/pinet/Form/emblem-dark.png?updatedAt=1754037252234" alt="Emblem">
+    <a href="https://freshersjob.online" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 15px;">
+      <img src="https://ik.imagekit.io/pinet/Form/emblem-dark.png" alt="Emblem">
       <div class="text">
         <strong>श्रम एवं रोजगार मंत्रालय</strong><br>
         GOVERNMENT OF INDIA<br>
@@ -159,27 +147,26 @@
     </a>
   </div>
   <div class="header-right">
-    <img src="https://ik.imagekit.io/pinet/Form/g20_2.png?updatedAt=1754037252463" alt="G20">
-    <img src="https://ik.imagekit.io/pinet/Form/azadi_0.jpg?updatedAt=1754037252372" alt="Azadi ka Amrit Mahotsav">
-    <img src="https://ik.imagekit.io/pinet/Form/swach-bharat.png?updatedAt=1754037252394" alt="Swachh Bharat">
+    <img src="https://ik.imagekit.io/pinet/Form/g20_2.png" alt="G20">
+    <img src="https://ik.imagekit.io/pinet/Form/azadi_0.jpg" alt="Azadi ka Amrit Mahotsav">
+    <img src="https://ik.imagekit.io/pinet/Form/swach-bharat.png" alt="Swachh Bharat">
   </div>
 </header>
 
 <!-- Slider -->
 <div class="slider">
   <div class="slides" id="slideTrack">
-    <img src="https://ik.imagekit.io/pinet/Form/eli.jpg?updatedAt=1754037252598" alt="Slide 1">
-    <img src="https://ik.imagekit.io/pinet/Form/29-30-meeting.jpg?updatedAt=1754037252595" alt="Slide 2">
-    <img src="https://ik.imagekit.io/pinet/Form/imagee.png?updatedAt=1754037252770" alt="Slide 3">
+    <img src="https://ik.imagekit.io/pinet/Form/eli.jpg" alt="Slide 1">
+    <img src="https://ik.imagekit.io/pinet/Form/29-30-meeting.jpg" alt="Slide 2">
+    <img src="https://ik.imagekit.io/pinet/Form/imagee.png" alt="Slide 3">
   </div>
 </div>
-
 <script>
   const slides = document.getElementById('slideTrack');
   let index = 0;
   setInterval(() => {
     index = (index + 1) % 3;
-    slides.style.transform = `translateX(-${index * 966}px)`;
+    slides.style.transform = `translateX(-${index * 100}vw)`;
   }, 5000);
 </script>
 
@@ -394,3 +381,4 @@ function handleSubmit(event) {
 
 </body>
 </html>
+
