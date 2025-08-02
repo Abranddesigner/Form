@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Employment Linked Incentive (ELI) Scheme</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELI Scheme | Ministry Portal</title>
   <style>
+    /* POPUP overlay + blur */
+    .popup-overlay {
+      position: fixed; inset: 0;
+      background-color: rgba(0,0,0,0.6);
+      display: none; align-items: center; justify-content: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      position: relative;
+      width: 90%; max-width: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      background: #fff;
+    }
+    .popup-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .close-btn {
+      position: absolute; top: 8px; right: 10px;
+      background: #fff; border: none;
+      font-size: 20px; font-weight: bold;
+      padding: 2px 6px;
+      cursor: pointer; border-radius: 4px;
+      z-index: 1;
+    }
+    body:not(.active) {
+      filter: blur(5px);
+      transition: filter 0.3s ease;
+    }
+
+    /* SLIDER banner */
+      <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -52,104 +87,84 @@
       height: auto;
       flex-shrink: 0;
     }
-    .form-box {
+
+    /* MAIN layout */
+    main {
       padding: 20px 5%;
-      background: #fff;
+    }
+    .form-box {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .form-left, .form-right {
+    .form-left, .form-center, .form-right {
+      padding: 20px;
+    }
+    .form-left {
       flex: 1;
       min-width: 280px;
-      margin: 10px;
-    }
-    .info-card {
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 10px;
-      line-height: 1.6;
-      background: none;
-    }
-    .info-card h3 {
-      margin-top: 0;
-      color: #004085;
-    }
-    .leaders-stacked {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 15px;
       text-align: center;
-      background: none;
     }
-    .leaders-stacked img {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
+    .form-center {
+      flex: 2;
+      min-width: 300px;
+    }
+    .form-right {
+      flex: 1;
+      background: #f8f8f8;
+      min-width: 260px;
+      max-width: 360px;
       border-radius: 8px;
-      margin: 10px auto;
-      display: block;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-      padding: 4px;
-      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      justify-content: flex-start;
     }
-    .content-section {
-      background: #fff;
-      padding: 30px 5%;
-      margin-top: 20px;
-    }
+    h2 { margin-top: 0; color: #0d47a1; }
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    table, th, td {
-      border: 1px solid #ccc;
+      width:100%; border-collapse: collapse; margin:15px 0;
     }
     th, td {
-      padding: 10px;
-      text-align: left;
+      border:1px solid #aaa; padding:10px; text-align:left;
     }
     th {
-      background-color: #343a40;
-      color: #fff;
+      background:#333; color:#fff;
     }
     .apply-btn {
-      display: inline-block;
-      background: #dc3545;
-      color: #fff;
-      padding: 10px 15px;
-      margin-top: 10px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
+      padding: 12px; background:#0d47a1; color:#fff;
+      font-size:16px; border:none; border-radius:5px;
+      text-align:center; text-decoration:none;
+      display:block; width:100%;
     }
-    footer {
-      padding: 10px;
-      background: #f0f0f0;
-      text-align: center;
+    .apply-btn:hover {
+      background:#0b3a82;
     }
-    @media (max-width: 768px) {
-      .slides img {
-        width: 100vw;
-        height: auto;
-      }
-      .form-box {
-        flex-direction: column;
-        align-items: center;
-      }
+
+    /* Responsive */
+    @media(max-width:768px) {
+      .top-slider { height: 50px; }
+      .top-slider .slide { font-size:14px; line-height:50px; }
+      header img { height: 80px; margin: 10px; }
+      .form-box { flex-direction: column; }
+      .form-right { align-items: stretch; }
     }
   </style>
 </head>
+
 <body>
-<div class="popup-overlay" id="popup">
-  <div class="popup-content">
-    <button class="close-btn" onclick="document.getElementById('popup').style.display='none'">X</button>
-    <img src="https://ik.imagekit.io/pinet/Form/popup.jpg?updatedAt=1754037252754" alt="Popup">
+  <!-- Popup -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">✕</button>
+      <img src="https://ik.imagekit.io/pinet/Form/popup.jpg?updatedAt=1754037252754" alt="Announcement">
+    </div>
   </div>
-</div>
-  
-<header>
+
+  <!-- Slide banner -->
+  <header>
   <div class="header-left">
     <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 15px;">
       <img src="https://ik.imagekit.io/pinet/Form/emblem-dark.png" alt="Emblem">
@@ -184,38 +199,20 @@
   }, 5000);
 </script>
 
-<!-- Apply Now and Minister Section -->
-<div class="form-box">
-  <div class="form-left">
-    <div class="info-card">
-      <h3>Employment Linked Incentive (ELI) Scheme</h3>
-      <p><strong>Application Start Date:</strong> 01-08-2025</p>
-      <p><strong>Last Date:</strong> 30-08-2025</p>
-      <p><strong>Application Fee</strong><br>
-      General, OBC, EWS: Rs. 550/-<br>
-      SC, ST, PH: Rs. 450/-</p>
-      <p><strong>Payment Mode:</strong> Debit Card / Credit Card / Net Banking / UPI</p>
-      <p><strong>Age Limit (as on 01-08-2025):</strong><br>
-      Minimum: 18-21 Years<br>
-      Maximum: 33-43 Years</p>
-      <a href="#" class="apply-btn">Apply Online - Click here</a>
-    </div>
-  </div>
+  <!-- Main body -->
+  <main>
+    <div class="form-box">
+      <div class="form-left">
+        <img src="https://ik.imagekit.io/pinet/Form/0s9a0756-5-1scaled.png?updatedAt=1754037252255" style="width:120px;border-radius:50%;" alt="Dr. Mansukh Mandaviya">
+        <div>Dr. Mansukh Mandaviya<br><small>Hon'ble Minister</small></div><br>
+        <img src="https://ik.imagekit.io/pinet/Form/ministerofstatemole.png?updatedAt=1754037252335" style="width:100px;border-radius:50%;" alt="Sushri Shobha Karandlaje">
+        <div>Sushri Shobha Karandlaje<br><small>Hon'ble MoS</small></div>
+      </div>
 
-  <div class="form-right leaders-stacked">
-    <img src="https://ik.imagekit.io/pinet/Form/0s9a0756-5-1scaled.png" alt="Dr. Mansukh Mandaviya">
-    <div>Dr. Mansukh Mandaviya<br><small>(Hon'ble Minister)</small></div>
-    <img src="https://ik.imagekit.io/pinet/Form/ministerofstatemole.png" alt="Sushri Shobha Karandlaje">
-    <div>Sushri Shobha Karandlaje<br><small>(Hon'ble Minister of State)</small></div>
-  </div>
-</div>
-
-<!-- Full Scheme Description -->
-<div class="content-section">
-  <h2>Cabinet Approves Employment Linked Incentive (ELI) Scheme</h2>
-  <p><strong>Date:</strong> 01 Jul, 2025</p>
-
-  <p><strong>Scheme to Enhance Job Creation, Employability and Social Security in all Sectors</strong></p>
+      <div class="form-center">
+        <h2>Cabinet Approves Employment Linked Incentive (ELI) Scheme</h2>
+        <div><strong>01 Jul, 2025</strong></div>
+        <p><strong>Scheme to Enhance Job Creation, Employability and Social Security in all Sectors</strong></p>
   <ul>
     <li>Focus on Manufacturing Sector and Incentives for First Timers</li>
     <li>First Timers to get one month’s wage up to Rs 15,000/- in two installments</li>
@@ -254,13 +251,40 @@
 
   <p>With ELI Scheme, the government intends to catalyse job creation in all sectors, particularly in manufacturing sector, besides incentivizing youth joining the workforce for the first time.  An important outcome of the Scheme will also be formalization of the country’s workforce by extending social security coverage for crores of young men and women.</p>
 
-  <p><a href="https://x.com/narendramodi/status/1940026335403155650" target="_blank">🔗 PM's Twitter Announcement</a></p>
-</div>
+  
+        <div style="border:1px solid #ddd; padding:15px; border-radius:5px; background:#f9f9f9;">
+          <strong>PM Narendra Modi on X:</strong><br>
+          <a href="https://x.com/narendramodi/status/1940026335403155650" target="_blank">View Tweet</a>
+          <blockquote style="margin:8px 0;">
+            “The ELI Scheme is a significant step towards empowering our youth, creating jobs, and boosting manufacturing...”
+          </blockquote>
+        </div>
+      </div>
 
-<footer>
-  &copy; Ministry of Labour & Employment
-</footer>
+      <div class="form-right">
+        <h3>Employment Linked Incentive (ELI) Scheme</h3>
+        <p><strong>Application Start:</strong> 01‑08‑2025<br><strong>Last Date:</strong> 30‑08‑2025</p>
+        <p><strong>Fees:</strong><br>
+           Gen/OBC/EWS: ₹550<br>SC/ST/PH: ₹450</p>
+        <p><strong>Payment Mode:</strong><br>
+           Debit / Credit Card / NetBanking / UPI / Other modes</p>
+        <p><strong>Age Limit (as on 01‑08‑2025):</strong><br>
+           Min 18–21 yrs<br>Max 33–43 yrs
+        </p>
+        <a href="application_form.html" target="_blank" class="apply-btn">Apply Online – Click Here</a>
+      </div>
+    </div>
+  </main>
 
+  <script>
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+      document.body.classList.remove('active');
+    };
+    function closePopup(){
+      document.getElementById('popup').style.display = 'none';
+      document.body.classList.add('active');
+    }
+  </script>
 </body>
 </html>
-
