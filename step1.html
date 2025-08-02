@@ -1,281 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <title>ELI Scheme | Ministry Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELI Scheme – आवेदन पत्र</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body { font-family: "Segoe UI", sans-serif; background: #f5f5f5; overflow-x: hidden; }
     header {
-      background: #fff;
-      padding: 10px 20px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 20px 30px;
+      min-height: auto;
     }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .header-left img {
-      height: 60px;
-    }
-    .header-left .text {
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    .header-left .text strong {
-      font-size: 16px;
-      font-weight: bold;
-      display: block;
-    }
-    .header-right img {
-      height: 60px;
-      margin: 5px;
-    }
-
+    .header-left, .header-right { display: flex; align-items: center; gap:20px; }
+    .header-left img, .header-right img { max-height: 90px; height: auto; }
+    .header-left .text { font-size:16px; line-height:1.4; }
+    .header-left .text strong { font-size:18px; display:block; }
     .slider {
-      width: 100%;
+      width: 100vw;
       overflow: hidden;
+      position: relative;
+      background: #000;
     }
     .slides {
       display: flex;
-      transition: transform 1s ease;
-      width: 300%;
+      transition: transform 1s ease-in-out;
     }
     .slides img {
       width: 100vw;
-      height: auto;
-      flex-shrink: 0;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
     }
-    @media(max-width:768px) {
-      .top-slider { height: 50px; }
-      .top-slider .slide { font-size:14px; line-height:50px; }
-      header img { height: 80px; margin: 10px; }
-      .form-box { flex-direction: column; }
-      .form-right { align-items: stretch; }
-      }
-    }
-
-    .form-box {
-      padding: 30px 5%;
-      display: flex;
-      justify-content: center;
-      background: #fff;
-      margin-top: 20px;
-    }
-    .form-center {
-      max-width: 600px;
-      width: 100%;
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 15px;
-    }
-    .form-group {
-      flex: 1;
-      min-width: 200px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group button {
-      width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    h2 {
-      text-align: center;
-      color: #0d47a1;
-    }
-    button[type="submit"] {
-      background: #0d47a1;
-      color: white;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button[type="submit"]:hover {
-      background: #0b3a82;
-    }
-    footer {
-      padding: 10px;
-      background: #f0f0f0;
-      text-align: center;
-      margin-top: 20px;
-    }
+    .form-box { background:#fff; padding:30px 15px; margin:20px auto; display:flex; justify-content:center; }
+    .form-center { width:100%; max-width:600px; background:#fafafa; padding:25px; border-radius:8px; box-shadow:0 0 12px rgba(0,0,0,0.12); }
+    #form-title { margin-bottom:25px; font-size:22px; color:#0d47a1; text-align:center; }
+    .form-row { display:flex; flex-wrap:wrap; gap:20px; margin-bottom:18px; }
+    .form-group { flex:1; min-width:220px; }
+    label { display:block; margin-bottom:6px; font-weight:600; font-size:0.98rem; }
+    input, select { width:100%; padding:10px; font-size:1rem; border:1px solid #bbb; border-radius:4px; background:#fff; color:#333; }
+    #next-btn { width:150px; padding:10px; font-size:1rem; color:#fff; background:#0d47a1; border:none; border-radius:4px; cursor:pointer; }
+    #next-btn:hover { background: #0b3a82; }
+    .form-actions { display:flex; justify-content:center; margin-top:20px; }
+    .hidden { display:none; }
+    footer { background:#f0f0f0; text-align:center; padding:12px; margin-top:30px; font-size:0.95rem; color:#444; }
+    @media (max-width: 768px) {
+      header { flex-direction:column; padding:15px; }
+      .header-left img, .header-right img { max-height:70px; }
+      .slider img { height:auto; } /* Allow mobile height adjustment */
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="header-left">
-    <a href="https://freshersjob.online" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 15px;">
+  <header>
+    <div class="header-left">
       <img src="https://ik.imagekit.io/pinet/Form/emblem-dark.png" alt="Emblem">
       <div class="text">
-        <strong>श्रम एवं रोजगार मंत्रालय</strong><br>
+        <strong>श्रम एवं रोजगार मंत्रालय</strong>
         GOVERNMENT OF INDIA<br>
-        <b>MINISTRY OF LABOUR & EMPLOYMENT</b>
-      </div>
-    </a>
-  </div>
-  <div class="header-right">
-    <img src="https://ik.imagekit.io/pinet/Form/g20_2.png" alt="G20">
-    <img src="https://ik.imagekit.io/pinet/Form/azadi_0.jpg" alt="Azadi ka Amrit Mahotsav">
-    <img src="https://ik.imagekit.io/pinet/Form/swach-bharat.png" alt="Swachh Bharat">
-  </div>
-</header>
-
-<!-- Slider -->
-<div class="slider">
-  <div class="slides" id="slideTrack">
-    <img src="https://ik.imagekit.io/pinet/Form/eli.jpg" alt="Slide 1">
-    <img src="https://ik.imagekit.io/pinet/Form/29-30-meeting.jpg" alt="Slide 2">
-    <img src="https://ik.imagekit.io/pinet/Form/imagee.png" alt="Slide 3">
-  </div>
-</div>
-<script>
-  const slides = document.getElementById('slideTrack');
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % 3;
-    slides.style.transform = `translateX(-${index * 100}vw)`;
-  }, 5000);
-</script>
-
-<!-- Form -->
-<div class="form-box">
-  <div class="form-center">
-    <h2>Application Form</h2>
-     <form id="step1-form" action="step2.html" method="get">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Candidate First Name</label>
-          <input type="text" name="first_name" required />
-        </div>
-        <div class="form-group">
-          <label>Candidate Last Name</label>
-          <input type="text" name="last_name" required />
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Father's Name</label>
-          <input type="text" name="father_name" required />
-        </div>
-        <div class="form-group">
-          <label>Mother's Name</label>
-          <input type="text" name="mother_name" required />
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Date of Birth</label>
-          <input type="date" name="dob" required />
-        </div>
-        <div class="form-group">
-          <label>Gender</label>
-          <select name="gender" required>
-            <option value="">Select</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Marital Status</label>
-          <select name="marital_status" required>
-            <option value="">Select</option>
-            <option>Single</option>
-            <option>Married</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Mobile Number</label>
-          <input type="text" name="mobile" required />
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Email ID</label>
-          <input type="email" name="email" required />
-        </div>
-      </div>
-
-       <div class="form-row">
-      <div class="form-group">
-        <label>&nbsp;</label>
-        <button type="submit">Save and Next</button>
+        MINISTRY OF LABOUR & EMPLOYMENT
       </div>
     </div>
-  </form>
-</main>
+    <div class="header-right">
+      <img src="https://ik.imagekit.io/pinet/Form/g20_2.png" alt="G20">
+      <img src="https://ik.imagekit.io/pinet/Form/azadi_0.jpg" alt="Azadi Mahotsav">
+      <img src="https://ik.imagekit.io/pinet/Form/swach-bharat.png" alt="Swachh Bharat">
+    </div>
+  </header>
 
-<footer>
-  &copy; Ministry of Labour & Employment
-</footer>
+  <div class="slider" id="slider">
+    <div class="slides" id="slideTrack">
+      <img src="https://ik.imagekit.io/pinet/Form/eli.jpg" alt="Slide 1">
+      <img src="https://ik.imagekit.io/pinet/Form/29-30-meeting.jpg" alt="Slide 2">
+      <img src="https://ik.imagekit.io/pinet/Form/imagee.png" alt="Slide 3">
+    </div>
+  </div>
 
+  <div class="form-box">
+    <div class="form-center">
+      <h2 id="form-title">Application Form</h2>
+      <form id="multi-step-form">
+        <div class="step step-1">
+          <!-- Step 1 fields -->
+          <div class="form-row"><div class="form-group"><label>First Name</label><input type="text" name="first_name" required></div><div class="form-group"><label>Last Name</label><input type="text" name="last_name" required></div></div>
+          <div class="form-row"><div class="form-group"><label>Father's Name</label><input type="text" name="father_name" required></div><div class="form-group"><label>Mother's Name</label><input type="text" name="mother_name" required></div></div>
+          <div class="form-row"><div class="form-group"><label>Date of Birth</label><input type="date" name="dob" required></div><div class="form-group"><label>Gender</label><select name="gender" required><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></div></div>
+          <div class="form-row"><div class="form-group"><label>Marital Status</label><select name="marital_status" required><option value="">Select</option><option>Single</option><option>Married</option></select></div><div class="form-group"><label>Mobile Number</label><input type="text" name="mobile" required></div></div>
+          <div class="form-row"><div class="form-group"><label>Email ID</label><input type="email" name="email" required></div></div>
+        </div>
+        <div class="step step-2 hidden">
+          <!-- Step 2 fields -->
+          <div class="form-row"><div class="form-group"><label>Address</label><input type="text" name="address" required></div></div>
+          <div class="form-row"><div class="form-group"><label>City</label><input type="text" name="city" required></div><div class="form-group"><label>State</label><input type="text" name="state" required></div></div>
+        </div>
+        <div class="form-actions"><button type="button" id="next-btn">Save and Next</button></div>
+      </form>
+    </div>
+  </div>
 
-<script>
-  function validateForm() {
-    const dob = document.querySelector('[name="dob"]').value;
-    const email = document.querySelector('[name="email"]').value;
-    const age = calculateAge(new Date(dob));
+  <footer>&copy; Ministry of Labour & Employment</footer>
 
-    if (age < 18) {
-      alert("Age must be at least 18 years.");
-      return false;
+  <script>
+    // Adjust slider height based on header size
+    function updateSliderHeight() {
+      const header = document.querySelector('header');
+      const slider = document.getElementById('slider');
+      const h = header.offsetHeight;
+      slider.style.height = `calc(100vh - ${h}px)`;
     }
-    if (!email.endsWith('@gmail.com')) {
-      alert("Email ID should end with '@gmail.com'.");
-      return false;
-    }
-    return true;
-  }
+    window.addEventListener('load', updateSliderHeight);
+    window.addEventListener('resize', updateSliderHeight);
 
-  function calculateAge(dob) {
-    const today = new Date();
-    let age = today.getFullYear() - dob.getFullYear();
-    const m = today.getMonth() - dob.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
-      age--;
-    }
-    return age;
-  }
-</script>
+    // Slide animation
+    (function(){
+      const track = document.getElementById('slideTrack');
+      const count = track.children.length;
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % count;
+        track.style.transform = `translateX(-${idx * 100}vw)`;
+      }, 5000);
+    })();
 
+    // Multi-step form logic
+    document.getElementById('next-btn').addEventListener('click', function(){
+      const step1 = document.querySelector('.step-1');
+      const step2 = document.querySelector('.step-2');
+      if (!step2.classList.contains('hidden')) {
+        alert('Form submitted successfully!');
+        history.replaceState(null, '', '/');
+      } else {
+        if (!validateStep1()) return;
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        document.getElementById('form-title').innerText = 'Step 2: अन्य जानकारी';
+        this.innerText = 'Submit';
+      }
+    });
+
+    function validateStep1() {
+      const f = document.forms[0];
+      if (!f.dob.value || !f.email.value) { alert('सभी required फिल्ड भरें'); return false; }
+      const age = (new Date() - new Date(f.dob.value)) / (1000*60*60*24*365.25);
+      if (age < 18) { alert('Age must be at least 18'); return false; }
+      if (!f.email.value.endsWith('@gmail.com')) { alert('Email should end with @gmail.com'); return false; }
+      return true;
+    }
+
+    // remove .html from URL if someone opens via step1.html
+    if (location.pathname.endsWith('step1.html') || location.pathname.endsWith('index.html')) {
+      history.replaceState(null, '', '/');
+    }
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
