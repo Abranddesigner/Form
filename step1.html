@@ -257,7 +257,11 @@
     })();
 
     // Save and Next button validation + redirect
-     window.addEventListener("DOMContentLoaded", function() {
+  // Resize slider height based on viewport
+  window.addEventListener("DOMContentLoaded", function(){
+    onResize();
+
+    // ✅ Save and Next button validation + redirect
     document.getElementById("multi-step-form").addEventListener("submit", function(e) {
       const f = this;
       const dob = f.dob.value, email = f.email.value;
@@ -286,10 +290,18 @@
       window.location.href = "step2.html";
     });
   });
+
+  window.addEventListener("resize", onResize);
+  function onResize(){
+    const headerH = document.querySelector(".page-header").offsetHeight;
+    const vh = window.innerHeight;
+    document.getElementById("slider").style.height = vh - headerH + "px";
+  }
 </script>
 
 </body>
 </html>
+
 
 
 
