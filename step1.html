@@ -67,7 +67,7 @@
       flex-shrink: 0;
       object-fit: cover;
       object-position: center;
-      animation: slideAnimation 30s infinite;
+      animation: slideAnimation 18s infinite;
     }
 
     @keyframes slideAnimation {
@@ -257,34 +257,39 @@
     })();
 
     // Save and Next button validation + redirect
-    document.getElementById("multi-step-form").onsubmit = function(e){
+     window.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("multi-step-form").addEventListener("submit", function(e) {
       const f = this;
       const dob = f.dob.value, email = f.email.value;
-      if(!dob || !email){
+
+      if (!dob || !email) {
         alert("कृपया सभी फ़ील्ड भरें");
         e.preventDefault();
         return;
       }
 
       const age = (new Date() - new Date(dob)) / (365.25 * 24 * 60 * 60 * 1000);
-      if(age < 18){
+      if (age < 18) {
         alert("Age should be at least 18");
         e.preventDefault();
         return;
       }
 
-      if(!email.endsWith("@gmail.com")){
+      if (!email.endsWith("@gmail.com")) {
         alert("Email must end with @gmail.com");
         e.preventDefault();
         return;
       }
 
+      // ✅ Redirect to step2.html
       e.preventDefault();
       window.location.href = "step2.html";
-    };
-  </script>
+    });
+  });
+</script>
 
 </body>
 </html>
+
 
 
