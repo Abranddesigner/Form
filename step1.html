@@ -189,82 +189,79 @@
   </div>
 
    <div class="form-section">
-    <div class="form-box">
-      <h2 id="form-title">Application Form</h2>
-      <form id="multi-step-form">
-        <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" name="first_name" required></div>
-          <div class="form-group"><label>Last Name</label><input type="text" name="last_name" required></div>
+  <div class="form-box">
+    <h2 id="form-title">Application Form</h2>
+    <form id="multi-step-form">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" name="first_name" required></div>
+        <div class="form-group"><label>Last Name</label><input type="text" name="last_name" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Father's Name</label><input type="text" name="father_name" required></div>
+        <div class="form-group"><label>Mother's Name</label><input type="text" name="mother_name" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Date of Birth</label><input type="date" name="dob" required></div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select name="gender" required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
         </div>
-        <div class="form-row">
-          <div class="form-group"><label>Father's Name</label><input type="text" name="father_name" required></div>
-          <div class="form-group"><label>Mother's Name</label><input type="text" name="mother_name" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Marital Status</label>
+          <select name="marital_status" required>
+            <option value="">Select</option>
+            <option>Single</option>
+            <option>Married</option>
+          </select>
         </div>
-        <div class="form-row">
-          <div class="form-group"><label>Date of Birth</label><input type="date" name="dob" required></div>
-          <div class="form-group">
-            <label>Gender</label>
-            <select name="gender" required>
-              <option value="">Select</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label>Marital Status</label>
-            <select name="marital_status" required>
-              <option value="">Select</option>
-              <option>Single</option>
-              <option>Married</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Mobile Number</label><input type="text" name="mobile" required></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label>Email ID</label><input type="email" name="email" required></div>
-        </div>
-        <button type="submit" id="next-btn">Save and Next</button>
-      </form>
-    </div>
+        <div class="form-group"><label>Mobile Number</label><input type="text" name="mobile" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email ID</label><input type="email" name="email" required></div>
+      </div>
+      <button type="submit" id="next-btn">Save and Next</button>
+    </form>
   </div>
+</div>
 
-  <footer>&copy; Ministry of Labour & Employment</footer>
+<footer>&copy; Ministry of Labour & Employment</footer>
 
-  <script>
-    window.addEventListener("DOMContentLoaded", function() {
-      document.getElementById("multi-step-form").addEventListener("submit", function(e) {
-        const f = this;
-        const dob = f.dob.value, email = f.email.value;
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("multi-step-form");
 
-        if (!dob || !email) {
-          alert("कृपया सभी फ़ील्ड भरें");
-          e.preventDefault();
-          return;
-        }
+    form.addEventListener("submit", function (e) {
+      const dob = form.dob.value;
+      const email = form.email.value;
 
-        const age = (new Date() - new Date(dob)) / (365.25 * 24 * 60 * 60 * 1000);
-        if (age < 18) {
-          alert("Age should be at least 18");
-          e.preventDefault();
-          return;
-        }
+      if (!dob || !email) {
+        alert("कृपया सभी फ़ील्ड भरें");
+        e.preventDefault();
+        return;
+      }
 
-        if (!email.endsWith("@gmail.com")) {
-          alert("Email must end with @gmail.com");
-          e.preventDefault();
-          return;
-        }
+      const age = (new Date() - new Date(dob)) / (365.25 * 24 * 60 * 60 * 1000);
+      if (age < 18) {
+        alert("Age should be at least 18");
+        e.preventDefault();
+        return;
+      }
 
-        window.location.href = "step2.html";
-      });
+      if (!email.endsWith("@gmail.com")) {
+        alert("Email must end with @gmail.com");
+        e.preventDefault();
+        return;
+      }
+
+      // ✅ Validation passed – allow navigation to step2.html
+      // No preventDefault here, so form submits normally (if action is set)
+      window.location.href = "step2.html";
     });
-  </script>
-
-</body>
-</html>
-
-
-
-
+  });
+</script>
