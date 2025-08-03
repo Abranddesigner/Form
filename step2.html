@@ -369,18 +369,17 @@ function handleSubmit(event) {
     paymentLink = "https://razorpay.me/@elischeme?amount=17MUsM73VMmtFDDi%2F74gkA%3D%3D";
   }
 
-  window.open(paymentLink, "_blank");
+  // ✅ More reliable way: redirect in same window
+  window.location.href = paymentLink;
 
-  setTimeout(() => {
-    alert("Thanks for Apply and Pay Fee");
-  }, 3000);
-
+  // ❌ Don't alert here — Razorpay will take user away from page
   return false;
 }
 </script>
 
 </body>
 </html>
+
 
 
 
