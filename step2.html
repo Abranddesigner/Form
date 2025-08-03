@@ -12,7 +12,7 @@
     }
     header {
       background: #fff;
-      padding: 10px 20px;
+      padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -23,8 +23,9 @@
       align-items: center;
       gap: 15px;
     }
-    .header-left img {
+    .header-left img, .header-right img {
       height: 60px;
+      width: auto;
     }
     .header-left .text {
       font-size: 14px;
@@ -34,10 +35,6 @@
       font-size: 16px;
       font-weight: bold;
       display: block;
-    }
-    .header-right img {
-      height: 60px;
-      margin: 5px;
     }
 
     .slider {
@@ -49,7 +46,7 @@
     }
     .slides {
       display: flex;
-      animation: slideAnimation 30s infinite;
+      animation: slideAnimation 20s infinite;
       width: 300%;
     }
     .slides img {
@@ -381,6 +378,7 @@ function handleSubmit(event) {
 
 </body>
 </html>
+
 
 
 
